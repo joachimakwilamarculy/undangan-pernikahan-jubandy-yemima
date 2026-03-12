@@ -13,7 +13,7 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    height: 100dvh;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                 url('Beranda\ \(Situs\ Web\).jpg'); /* Ganti dengan gambar waterfall anda */
     background-size: cover;
@@ -22,13 +22,16 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
     margin: 10px 0;
     color: #bf89c7;
+    width: 90%;
     text-shadow: black;
 }
 
@@ -130,22 +133,25 @@ h2 {
 }
 
 .decor {
-    position: fixed;
-    width: 250px; /* Sesuaikan ukuran gambar */
+    position: absolute;
+    width: 45%; /* Sesuaikan ukuran gambar */
     opacity: 0.9;
+    max-width: 300px;
+    z-index: 5;
 }
 
 /* Posisi Spesifik */
 .flower-top-left {
-    top: -20px;
-    left: -20px;
+    top: 0;
+    left: 0;
+    width: 45%;
     animation: floatSoft 6s ease-in-out infinite;
 }
 
 .flower-top-right {
-    top: -50px;
-    right: -125px;
-    width: 50%;
+    top: 0;
+    right: 0;
+    width: 45%;
     animation: riseUpAndStay 1.8s ease-out forwards;
 }
 
@@ -174,8 +180,13 @@ h2 {
 
 /* Responsif untuk HP */
 @media (max-width: 768px) {
-    .decor { width: 150px; }
-    .swan-container { width: 120px; }
+    .swan-container { 
+        width: 120px;
+        bottom: 10px; 
+    }
+    .mempelai-container {
+        gap: 30px;
+    }
 }
 
 @keyframes riseUpAndStay {
