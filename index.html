@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Jubandy & Yemima</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">The Wedding of</p>
+            <h1>Jubandy & Yemima</h1>
+            <p class="date">09 . 04 . 2026</p>
+            <div class="guest-box">
+                <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <button onclick="scrollToContent()">Buka Undangan</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="content-section">
+        <div class="verse">
+            <p>"Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan."</p>
+            <span>(Kolose 3:14)</span>
+        </div>
+        
+        <h2>Salam Damai Sejahtera</h2>
+        
+        <div class="mempelai-container">
+            <div class="mempelai">
+                <div class="photo-frame"></div>
+                <h3>Yemima Eka Sintya, S.Th</h3>
+                <p>Putri dari Bapak Slamet Riyadi (†) & Ibu Widayati</p>
+            </div>
+
+            <div class="mempelai">
+                <div class="photo-frame"></div>
+                <h3>Jubandy, S.Th</h3>
+                <p>Putra kandung kedua dari Bapak Libi & Ibu Jenak (†)</p>
+                <p class="small">Putra angkat dari Bapak Pdt. Hadiwiyoto Said, M.T (†) & Ibu Maria Yulaicha</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-acara">
+        <h2>Informasi Acara</h2>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3>PEMBERKATAN</h3>
+                <p><strong>Kamis, 09 April 2026</strong></p>
+                <p>Pukul: 08.00 WIB</p>
+                <p>GKMI Agape, Ds. Sripendowo, Kec. Ketapang, Lampung Selatan</p>
+            </div>
+
+            <div class="card">
+                <h3>RESEPSI NIKAH</h3>
+                <p><strong>Kamis, 09 April 2026</strong></p>
+                <p>Pukul: 09.00 WIB s/d Selesai</p>
+                <p>Kediaman Mempelai Wanita, Kec. Ketapang, Lampung Selatan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gifts">
+        <h2>Wedding Gifts</h2>
+        <div class="bank-container">
+            <div class="bank-card">
+                <p>BRI - 584101024114534</p>
+                <p>A.N YEMIMA EKA SINTYA</p>
+            </div>
+            <div class="bank-card">
+                <p>BNI - 1179861163</p>
+                <p>A.N JUBANDY</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToContent() {
+            document.getElementById('profile').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <div class="overlay-decorations">
+    <img src="bunga.png" class="decor flower-top-left" data-aos="fade-down">
+    
+    <img src="bunga-putih-kanan.png" class="decor flower-top-right" data-aos="fade-down" data-aos-delay="200">
+
+    <div class="swan-container" data-aos="fade-up" data-aos-duration="2000">
+        <img src="swan-pair.png" class="decor-swan">
+    </div>
+
+    <div class="petal-overlay"></div>
+</div>
+</body>
+</html>
