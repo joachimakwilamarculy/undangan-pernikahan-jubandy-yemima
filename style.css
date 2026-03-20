@@ -954,13 +954,13 @@ body {
 
     /* 2. Posisi Alami dan Penuh di Sudut (Tidak menempel kaku di tepi) */
     .atas-kiri {
-        top: -10px; /* Nilai negatif sedikit agar ornamen sit natural */
+        top: -20px; /* Nilai negatif sedikit agar ornamen sit natural */
         left: -10px; /* natural edge */
     }
 
     .atas-kanan {
         top: -15px; /* natural edge */
-        right: -25px; /* natural edge */
+        right: -15px; /* natural edge */
     }
 
     .bawah-kiri {
@@ -970,7 +970,7 @@ body {
            sepenuhnya keluar dari area layar HP Anda.
            Yang tersisa di dalam layar adalah bagian visual bunga yang tampak utuh,
            alami, dan penuh, menanjak dari sudut, persis seperti bunga atas kanan. */
-        bottom: -15px; 
+        bottom: -30px; 
         left: -25px; /* natural edge */
     }
 
