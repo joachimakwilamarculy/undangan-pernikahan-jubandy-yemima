@@ -943,47 +943,35 @@ body {
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
-    /* 1. Dekorasi Bunga - Semua Utuh, Sama Besar, Nempel di Sudut */
+    /* 1. Setelan Wajib agar semua ornamen Bunga SAMA BESAR */
+    .atas-kiri, .atas-kanan, .bawah-kiri {
+        position: absolute !important;
+        width: 75% !important; /* Ketiganya dikunci di ukuran yang sama persis */
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 5 !important; /* Memastikan selalu ada di atas/terlihat jelas */
+    }
 
-    /* Menyetel ukuran yang sama besar dan posisi natural untuk bunga di sudut atas */
+    /* 2. Ditempel pas di ujung sudut (Kelihatan Utuh Semua) */
     .atas-kiri {
-        width: 75%; /* Set sama besar untuk konsistensi */
-        top: -15px; /* Sedikit negatif untuk menyembunyikan tepi gambar visual yang kaku */
-        left: -20px; /* natural edge */
+        top: 0 !important;
+        left: 0 !important;
     }
 
     .atas-kanan {
-        width: 75%; /* Set sama besar untuk konsistensi */
-        top: -20px; /* natural edge */
-        right: -30px; /* natural edge */
+        top: 0 !important;
+        right: 0 !important;
     }
 
-    /* Bunga Bawah Kiri - SOLUSI JITU UNTUK GAMBAR TERPOTONG */
     .bawah-kiri {
-        /* 1. Set ukuran sama besar dengan bunga atas kanan */
-        width: 75%; 
-
-        /* 2. Posisikan tepat di sudut kiri */
-        left: -30px; /* natural edge */
-
-        /* 3. Trik Kunci: Gunakan nilai NEGATIF yang besar untuk 'bottom'.
-           Ini akan mendorong garis potongan kasar lurus di bagian bawah bunga
-           sepenuhnya keluar dari area layar HP Anda.
-           Yang tersisa di dalam layar adalah bagian visual bunga yang tampak utuh,
-           alami, dan penuh, menanjak dari sudut, persis seperti bunga atas kanan. */
-        bottom: -50px; 
-
-        /* Pastikan elemen natural sit relative to text */
-        z-index: 2;
+        bottom: 0 !important; 
+        left: 0 !important;
     }
 
-    /* Penyesuaian Angsa agar tidak bertabrakan dengan bunga yang diperbesar */
+    /* 3. Angsa diperbesar dan ditempel di sudut kanan bawah */
     .Angsa {
-        width: 45%;
-        right: 15px;
-        bottom: 15px; /* Ditarik sedikit lebih ke dalam agar tidak tertutup bunga */
-        z-index: 3;
-    }
+        position: absolute !important;
+        width
 
     /* --- Sisa kode media query (TIDAK BERUBAH) --- */
     .bungaprofile { width: 100%; right: 0; opacity: 0.15; } 
