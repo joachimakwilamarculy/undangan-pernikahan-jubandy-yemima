@@ -960,12 +960,12 @@ body {
     /* Bunga Bawah Kiri - SOLUSI: Bawa kembali ke sudut, perkecil, dan menempel di tepi */
     .bawah-kiri { 
         /* Ukuran diperbesar dari image_7, tapi lebih kecil dari image_8 agar tidak melayang */
-        width: 40%; 
+        width: 80%; 
         /* Dekatkan ke tepi kiri */
-        left: -20px; 
+        left: -50px; 
         /* Ubah dari positif 20px kembali ke NEGATIF agar "menanjak" dari sudut */
         /* Nilai negatif -30px akan mendorong bagian bawah bunga ke bawah, membuatnya menempel di tepi bawah viewport */
-        bottom: -30px; 
+        bottom: -20%; 
     }
     
     /* Angsa (Sudah diperbesar di image_8.png, tetap dipertahankan) */
