@@ -946,7 +946,7 @@ body {
     /* 1. Setelan Bunga - SAMA BESAR, Proporsional untuk HP, Alami di Sudut */
     .atas-kiri, .atas-kanan, .bawah-kiri {
         position: absolute;
-        width: 38%; /* Skala ulang dari 75% ke 38% agar proporsional untuk HP */
+        width: 60%; /* Skala ulang dari 75% ke 38% agar proporsional untuk HP */
         margin: 0;
         padding: 0;
         z-index: 5; /* Pertahankan di atas agar terlihat jelas */
@@ -955,7 +955,7 @@ body {
     /* 2. Posisi Alami dan Penuh di Sudut (Tidak menempel kaku di tepi) */
     .atas-kiri {
         top: -10px; /* Nilai negatif sedikit agar ornamen sit natural */
-        left: -15px; /* natural edge */
+        left: -10px; /* natural edge */
     }
 
     .atas-kanan {
@@ -970,13 +970,13 @@ body {
            sepenuhnya keluar dari area layar HP Anda.
            Yang tersisa di dalam layar adalah bagian visual bunga yang tampak utuh,
            alami, dan penuh, menanjak dari sudut, persis seperti bunga atas kanan. */
-        bottom: -45px; 
-        left: -20px; /* natural edge */
+        bottom: -15px; 
+        left: -25px; /* natural edge */
     }
 
     /* 3. Perbaiki Posisi Angsa agar tidak tertutup bunga */
     .Angsa {
-        width: 45%;
+        width: 60%;
         right: 15px;
         bottom: 15px; /* Ditarik sedikit lebih ke dalam agar tidak tertutup bunga bawah */
         z-index: 6; /* Sedikit lebih tinggi dari bunga agar tetap sit natural */
