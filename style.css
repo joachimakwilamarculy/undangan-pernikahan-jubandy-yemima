@@ -943,31 +943,34 @@ body {
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
-    /* 1. Dekorasi Bunga & Angsa - Penyesuaian Ukuran & Posisi agar Terlihat Jelas & Konsisten */
+    /* 1. Dekorasi Bunga & Angsa - Penyesuaian Ulang */
     
-    /* Semua ornamen bunga dibuat sama besar (Misalnya: 80%) agar konsisten */
+    /* Bunga Atas (Sudah baik di image_8.png) */
     .atas-kiri { 
-        width: 80%; /* Diperbesar untuk konsistensi */
+        width: 80%; 
         left: -30px; 
         top: -10px; 
     }
     .atas-kanan { 
-        width: 80%; /* Diperbesar untuk konsistensi */
+        width: 80%; 
         right: -50px; 
         top: -20px; 
     }
     
-    /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
+    /* Bunga Bawah Kiri - SOLUSI: Bawa kembali ke sudut, perkecil, dan menempel di tepi */
     .bawah-kiri { 
-        width: 80%; /* Disamakan ukurannya dengan bunga lain */
-        left: -80px; /* Pertahankan posisi kiri */
-        /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
-        bottom: 20px; 
+        /* Ukuran diperbesar dari image_7, tapi lebih kecil dari image_8 agar tidak melayang */
+        width: 40%; 
+        /* Dekatkan ke tepi kiri */
+        left: -20px; 
+        /* Ubah dari positif 20px kembali ke NEGATIF agar "menanjak" dari sudut */
+        /* Nilai negatif -30px akan mendorong bagian bawah bunga ke bawah, membuatnya menempel di tepi bawah viewport */
+        bottom: -30px; 
     }
     
-    /* Angsa diperbesar sedikit (dari 45% ke 55%) */
+    /* Angsa (Sudah diperbesar di image_8.png, tetap dipertahankan) */
     .Angsa { 
-        width: 55%; /* Diperbesar sedikit */
+        width: 55%; 
         right: 10px; 
         bottom: 10px; 
     }
