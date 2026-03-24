@@ -938,7 +938,7 @@ body {
     /* Semua ornamen bunga dibuat sama besar (Misalnya: 80%) agar konsisten */
     .atas-kiri { 
         width: 80%; /* Diperbesar untuk konsistensi */
-        left: -30px; 
+        left: -10px; 
         top: -10px; 
     }
     .atas-kanan { 
@@ -950,9 +950,9 @@ body {
     /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
     .bawah-kiri { 
         width: 80%; /* Disamakan ukurannya dengan bunga lain */
-        left: -50px; /* Pertahankan posisi kiri */
+        left: 50px; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
-        bottom: -10px; 
+        bottom: 10px; 
     }
     
     /* Angsa diperbesar sedikit (dari 45% ke 55%) */
