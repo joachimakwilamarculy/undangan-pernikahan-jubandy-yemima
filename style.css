@@ -635,27 +635,15 @@ body {
     transform: translateY(0);
   }
 }
-@media screen and (max-width: 768px) {
-    .atas-kiri {
-        width: 55%;
-        left: -10px;
-        top: -10px;
-    }
-    .atas-kanan {
-        width: 55%;
-        right: -10px;
-        top: -20px;
-    }
-    .bawah-kiri {
-        width: 65%;
-        left: -10px;
-        bottom: 10px;
-    }
-    .Angsa {
-        width: 40%;
-        right: 10px;
-        bottom: 10px;
-    }
+/* Media Query Mobile */
+@media (max-width: 600px) {
+  .atas-kiri,
+  .atas-kanan {
+    width: 40%;
+  }
+  .Angsa {
+    width: 100px;
+  }
 }
 
 @keyframes munculDariKiri {
@@ -1004,6 +992,38 @@ body {
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
+    /* 1. Dekorasi Bunga & Angsa - Penyesuaian Ukuran & Posisi agar Terlihat Jelas & Konsisten */
+    
+    /* Semua ornamen bunga dibuat sama besar (Misalnya: 80%) agar konsisten */
+    .atas-kiri { 
+        top: -25px;
+        left: -80px;
+        width: 30%; 
+    }
+    .atas-kanan { 
+        top: -50px;
+        right: -150px;
+        width: 50%;
+    }
+    
+    /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
+    .bawah-kiri { 
+         bottom: -10px;
+        left: -100px;
+         width: 50%;
+        /* position: absolute; */
+    }
+    
+    /* Angsa diperbesar sedikit (dari 45% ke 55%) */
+    .Angsa { 
+        width: 55%; /* Diperbesar sedikit */
+        right: 10px; 
+        bottom: 10px; 
+    }
+
+    /* --- Sisa kode media query (TIDAK BERUBAH) --- */
+    .bungaprofile { width: 100%; right: 0; opacity: 0.15; } /* Agak transparan di HP */
+
     /* Menyesuaikan ukuran teks judul utama */
     .main-title { font-size: 2.5rem; }
 
