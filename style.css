@@ -46,6 +46,7 @@ body {
 }
 
 /* Dekorasi Pojok - Ikut Tergulung */
+/* Dekorasi Pojok - Perbaikan Posisi */
 .decor-hero {
   position: absolute;
   z-index: 2;
@@ -53,37 +54,45 @@ body {
 }
 
 .atas-kiri {
-  top: -25px;
-  left: -80px;
+  top: 0;
+  left: 0;
   width: 30%;
+  max-width: 200px; /* Batas agar tidak terlalu besar di tablet */
   position: absolute;
   animation: munculDariKiri 1.8s ease-out forwards;
+  transform-origin: left top;
 }
 
 .atas-kanan {
-  top: -50px;
-  right: -150px;
-  width: 50%;
+  top: 0;
+  right: 0;
+  width: 45%;
+  max-width: 250px;
   animation: riseDownAndStay 1.8s ease-out forwards;
   position: absolute;
+  transform-origin: right top;
 }
 
 .bawah-kiri {
-  bottom: -10px;
-  left: -100px;
-  width: 50%;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  max-width: 250px;
   animation: riseUpAndStay 1.8s ease-out forwards;
   position: absolute;
+  transform-origin: left bottom;
 }
 
+/* Perbaikan Posisi Angsa agar tidak terlalu ke tengah */
 .Angsa {
-  bottom: -5px;
-  right: 100px;
+  bottom: 10px;
+  right: 10px;
   width: 25%;
-  position:absolute;
+  max-width: 150px;
+  position: absolute;
   animation: mengapungPelan 3s linear 2s infinite;
+  z-index: 3;
 }
-
 .bungaprofile {
   bottom: -900px;
   right: 50px;
@@ -933,33 +942,30 @@ body {
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
-    /* 1. Dekorasi Bunga & Angsa - Penyesuaian Ukuran & Posisi agar Terlihat Jelas & Konsisten */
-    
-    /* Semua ornamen bunga dibuat sama besar (Misalnya: 80%) agar konsisten */
+    /* Menghilangkan jarak/celah putih di pojok layar HP */
     .atas-kiri { 
-        width: 80%; /* Diperbesar untuk konsistensi */
-        left: -10px; 
-        top: -10px; 
+        width: 40%; 
+        left: 0; 
+        top: 0; 
     }
     .atas-kanan { 
-        width: 80%; /* Diperbesar untuk konsistensi */
-        right: -30px; 
-        top: -20px; 
+        width: 55%; 
+        right: 0; 
+        top: 0; 
     }
     
-    /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
+    /* Bunga Bawah Kiri - SEKARANG PAS DI POJOK */
     .bawah-kiri { 
-        width: 80%; /* Disamakan ukurannya dengan bunga lain */
-        left: 150px; /* Pertahankan posisi kiri */
-        /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
-        bottom: 50px; 
+        width: 55%; 
+        left: 0; 
+        bottom: 0; 
+        display: block !important;
     }
     
-    /* Angsa diperbesar sedikit (dari 45% ke 55%) */
     .Angsa { 
-        width: 55%; /* Diperbesar sedikit */
-        right: 10px; 
-        bottom: 10px; 
+        width: 35%; 
+        right: 5px; 
+        bottom: 5px; 
     }
 
     /* --- Sisa kode media query (TIDAK BERUBAH) --- */
