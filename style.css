@@ -1,3 +1,4 @@
+
 /* --- RESET & RESPONSIVE --- */
 * {
   margin: 0;
@@ -84,7 +85,7 @@ body {
 }
 
 .bungaprofile {
-  bottom: -200px;
+  bottom: -900px;
   right: 50px;
   width: 80%;
   position: absolute;
@@ -105,11 +106,10 @@ body {
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 40px; /* Jarak antar elemen agar indah */
   z-index: 5;
   width: 100%;
   justify-content: center;
-  padding: 0 20px;
 }
 
 /* ========================================= */
@@ -173,40 +173,11 @@ body {
 #floating-nav {
     position: fixed; 
     top: 20px;       
-    right: 15px;     
+    right: 15px;     /* Sedikit digeser ke kanan agar tidak terlalu ke tengah */
     display: flex;   
     flex-direction: column; 
-    gap: 8px;        
+    gap: 8px;        /* Jarak antar tombol dirapatkan (sebelumnya 12px) */
     z-index: 9999;   
-}
-
-/* Mobile: nav horizontal di atas */
-@media screen and (max-width: 768px) {
-    #floating-nav {
-        top: auto;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        flex-direction: row;
-        justify-content: space-around;
-        background-color: rgba(94, 53, 177, 0.95);
-        padding: 10px 5px;
-        border-radius: 0;
-        gap: 4px;
-        backdrop-filter: blur(6px);
-    }
-
-    .nav-button {
-        font-size: 0.65rem;
-        padding: 6px 8px;
-        min-width: unset;
-        flex: 1;
-        border-radius: 8px;
-    }
-
-    .nav-button:hover {
-        transform: none;
-    }
 }
 
 /* GAYA TOMBOL INDIVIDUAL (UKURAN DIPERKECIL) */
@@ -244,12 +215,6 @@ body {
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
-  .full-page {
-    padding: 60px 15px 100px; /* bottom padding untuk nav mobile */
-  }
-}
-
 #profile {
   background-color: #fdfcf0;
 }
@@ -259,13 +224,9 @@ body {
 }
 
 .mempelai-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   z-index: 5;
-  gap: 50px;
-  width: 100%;
+  gap: 50px; /* Jarak antar mempelai */
 }
 
 .mempelai {
@@ -428,12 +389,6 @@ body {
   font-weight: bold;
 }
 
-.kalimat {
-  max-width: 600px;
-  line-height: 1.8;
-  padding: 0 10px;
-}
-
 .card,
 .bank-card {
   background: white;
@@ -481,12 +436,14 @@ body {
   cursor: pointer;
 }
 
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
+/* --- WADAH KARTU (FLEXBOX) --- */
+.bank-container {
+    display: flex;
+    justify-content: center; /* Memposisikan kartu di tengah layar */
+    gap: 30px;               /* Jarak antara kartu BNI dan BRI */
+    flex-wrap: wrap;         /* KUNCI: Otomatis susun ke bawah kalau layar HP sempit */
+    margin-top: 30px;
+    width: 100%;
 }
 
 /* --- DESAIN KARTU SATUAN --- */
@@ -942,16 +899,10 @@ body {
 /* ========================================= */
 
 .wedding-footer {
-    background-color: #fdf6ff;
-    color: #333333;
+    background-color: #fdf6ff; /* Warna dasar ungu sangat muda/putih agar seragam */
+    color: #333333; /* Warna teks gelap agar mudah dibaca */
     padding: 80px 20px 40px;
     text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-    .wedding-footer {
-        padding-bottom: 100px; /* ruang untuk nav mobile */
-    }
 }
 
 .footer-profile {
@@ -996,22 +947,23 @@ body {
     
     /* Semua ornamen bunga dibuat sama besar (Misalnya: 80%) agar konsisten */
     .atas-kiri { 
-        top: -25px;
-        left: -80px;
-        width: 30%; 
+        width: 80%; /* Diperbesar untuk konsistensi */
+        left: -30px; 
+        top: -10px; 
     }
     .atas-kanan { 
-        top: -50px;
-        right: -150px;
-        width: 50%;
+        width: 80%; /* Diperbesar untuk konsistensi */
+        right: -50px; 
+        top: -20px; 
     }
     
     /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
     .bawah-kiri { 
-         bottom: -10px;
-        left: -100px;
-         width: 50%;
-        /* position: absolute; */
+        width: 80%; /* Disamakan ukurannya dengan bunga lain */
+        left: -80px; /* Pertahankan posisi kiri */
+        /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
+        bottom: 20px; 
+        position: absolute;
     }
     
     /* Angsa diperbesar sedikit (dari 45% ke 55%) */
@@ -1026,14 +978,12 @@ body {
 
     /* Menyesuaikan ukuran teks judul utama */
     .main-title { font-size: 2.5rem; }
-
-    .hero-content { gap: 20px; }
     
     /* Layout Mempelai menjadi atas-bawah (Vertikal) */
     .mempelai-container {
+        display: flex;
         flex-direction: column;
         gap: 30px;
-        align-items: center;
     }
 
     /* Memastikan semua kartu (Acara, Bank, Form) pas di tengah layar HP */
