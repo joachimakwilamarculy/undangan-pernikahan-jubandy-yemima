@@ -953,7 +953,6 @@ body {
         left: -50px; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
         bottom: -10px; 
-        position: absolute;
     }
     
     /* Angsa diperbesar sedikit (dari 45% ke 55%) */
