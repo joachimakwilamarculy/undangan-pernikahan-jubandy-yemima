@@ -939,32 +939,32 @@ body {
 }
 
 /* ========================================= */
-/* === PERBAIKAN CSS UNTUK TAMPILAN HP === */
+/* === PERBAIKAN FINAL UKURAN BUNGA HP === */
 /* ========================================= */
 
-@media (max-width: 600px) {
-  /* 1. Menyamakan Ukuran Bunga Atas & Posisi yang Seimbang */
-  /* Di media query ini, kita atur pergeseran negatif yang lebih kecil 
-     dan sama untuk kedua bunga atas agar ukurannya terlihat sama visual. */
+@media screen and (max-width: 600px) {
+  /* Memaksa ukuran bunga sama besar */
+  .atas-kiri, .atas-kanan, .bawah-kiri {
+    width: 40% !important; 
+    position: absolute !important;
+  }
+
+  /* Menempelkan bunga kiri atas pas di sudut */
   .atas-kiri {
-    top: -10px; /* Kurangi pergeseran keluar agar bunga terlihat lebih utuh */
-    left: -20px; /* Kurangi pergeseran keluar */
-    width: 35%; /* Setel lebar yang sama, 35% lebih aman agar tidak tumpang tindih */
+    top: 0px !important; 
+    left: 0px !important; 
   }
 
+  /* Menempelkan bunga kanan atas pas di sudut */
   .atas-kanan {
-    top: -10px; /* Setel pergeseran yang sama dengan bunga kiri */
-    right: -20px; /* Setel pergeseran yang sama dengan bunga kiri */
-    width: 35%; /* Setel lebar yang sama */
+    top: 0px !important; 
+    right: 0px !important; 
   }
 
-  /* 2. Menampilkan Bunga Bawah Kiri Sepenuhnya */
-  /* Di media query ini, kita timpa pergeseran negatif dengan positif 
-     agar bunga didorong masuk ke dalam layar dan terlihat sepenuhnya. */
+  /* Menempelkan bunga kiri bawah agar masuk ke layar penuh */
   .bawah-kiri {
-    bottom: 10px; /* Dorong masuk ke dalam layar */
-    left: 10px; /* Dorong masuk ke dalam layar */
-    width: 35%; /* Sesuaikan lebar di HP agar tidak terlalu besar */
+    bottom: 0px !important; 
+    left: 0px !important; 
   }
 }
 
