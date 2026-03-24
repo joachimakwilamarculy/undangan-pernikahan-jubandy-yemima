@@ -939,45 +939,54 @@ body {
 }
 
 /* ========================================= */
-/* === PERBAIKAN FINAL UKURAN BUNGA HP === */
+/* === KODE DIPERBARUI UNTUK HP (RESPONSIF) === */
 /* ========================================= */
 
-@media screen and (max-width: 600px) {
-  /* Memaksa ukuran bunga sama besar */
-  .atas-kiri, .atas-kanan, .bawah-kiri {
-    width: 40% !important; 
-    position: absolute !important;
-  }
+@media screen and (max-width: 768px) {
+    /* 1. Dekorasi Bunga & Angsa - Penyesuaian Ukuran & Posisi agar Terlihat Jelas & Konsisten */
+    
+    /* Semua ornamen bunga dibuat sama besar (Misalnya: 80%) agar konsisten */
+    .atas-kiri { 
+        width: 80%; /* Diperbesar untuk konsistensi */
+        left: -30px; 
+        top: -10px; 
+    }
+    .atas-kanan { 
+        width: 80%; /* Diperbesar untuk konsistensi */
+        right: -30px; 
+        top: -20px; 
+    }
+    
+    /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
+    .bawah-kiri { 
+        width: 80%; /* Disamakan ukurannya dengan bunga lain */
+        left: -80px; /* Pertahankan posisi kiri */
+        /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
+        bottom: 5px; 
+        position: absolute;
+    }
+    
+    /* Angsa diperbesar sedikit (dari 45% ke 55%) */
+    .Angsa { 
+        width: 55%; /* Diperbesar sedikit */
+        right: 10px; 
+        bottom: 10px; 
+    }
 
-  /* Menempelkan bunga kiri atas pas di sudut */
-  .atas-kiri {
-    top: 0px !important; 
-    left: 0px !important; 
-  }
+    /* --- Sisa kode media query (TIDAK BERUBAH) --- */
+    .bungaprofile { width: 100%; right: 0; opacity: 0.15; } /* Agak transparan di HP */
 
-  /* Menempelkan bunga kanan atas pas di sudut */
-  .atas-kanan {
-    top: 0px !important; 
-    right: 0px !important; 
-  }
-
-  /* Menempelkan bunga kiri bawah agar masuk ke layar penuh */
-  .bawah-kiri {
-    bottom: 0px !important; 
-    left: 0px !important; 
-  }
-}
-
-    /* --- Sisa kode layout Anda (TIDAK BERUBAH) --- */
-    .bungaprofile { width: 100%; right: 0; opacity: 0.15; }
+    /* Menyesuaikan ukuran teks judul utama */
     .main-title { font-size: 2.5rem; }
     
+    /* Layout Mempelai menjadi atas-bawah (Vertikal) */
     .mempelai-container {
         display: flex;
         flex-direction: column;
         gap: 30px;
     }
 
+    /* Memastikan semua kartu (Acara, Bank, Form) pas di tengah layar HP */
     .card-grid {
         display: flex;
         flex-direction: column;
@@ -992,8 +1001,10 @@ body {
         box-sizing: border-box;
     }
 
+    /* Peta Google Maps lebih proporsional di layar kecil */
     .map-wrapper iframe { height: 200px; }
 
+    /* Layout Love Story menjadi atas-bawah */
     .story-grid {
         flex-direction: column;
         text-align: center;
@@ -1001,9 +1012,10 @@ body {
     
     .story-img img {
         width: 100%; 
-        max-width: 250px; 
+        max-width: 250px; /* Batas maksimal besarnya foto timeline */
     }
 
+    /* Gallery Prewedding berubah menjadi 2 kolom rapi di HP */
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
