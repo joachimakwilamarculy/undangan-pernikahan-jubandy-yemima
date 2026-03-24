@@ -959,8 +959,8 @@ body {
     
     /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
     .bawah-kiri { 
-        width: 80%; /* Disamakan ukurannya dengan bunga lain */
-        left: -50px; /* Pertahankan posisi kiri */
+        width: 50%; /* Disamakan ukurannya dengan bunga lain */
+        left: -20px; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
         bottom: -20px; 
     }
