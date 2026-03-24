@@ -960,7 +960,7 @@ body {
     /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
     .bawah-kiri { 
         width: 50%; /* Disamakan ukurannya dengan bunga lain */
-        left: -5px; /* Pertahankan posisi kiri */
+        left: 10px; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
         bottom: -20px; 
     }
