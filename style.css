@@ -950,9 +950,9 @@ body {
     /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
     .bawah-kiri { 
         width: 80%; /* Disamakan ukurannya dengan bunga lain */
-        left: 50px; /* Pertahankan posisi kiri */
+        left: 150px; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
-        bottom: 10px; 
+        bottom: 50px; 
     }
     
     /* Angsa diperbesar sedikit (dari 45% ke 55%) */
