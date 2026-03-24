@@ -939,43 +939,34 @@ body {
 }
 
 /* ========================================= */
-/* === KODE DIPERBARUI UNTUK HP (RESPONSIF) === */
+/* === PERBAIKAN CSS UNTUK TAMPILAN HP === */
 /* ========================================= */
 
-@media screen and (max-width: 768px) {
-    /* 1. KUNCI UTAMA: Semua Ornamen Bunga SAMA BESAR */
-    .atas-kiri, .atas-kanan, .bawah-kiri {
-        position: absolute;
-        width: 60%; /* Disamakan 60% agar proporsional dan tidak saling bertumpuk di HP */
-        margin: 0;
-        padding: 0;
-        z-index: 5;
-    }
+@media (max-width: 600px) {
+  /* 1. Menyamakan Ukuran Bunga Atas & Posisi yang Seimbang */
+  /* Di media query ini, kita atur pergeseran negatif yang lebih kecil 
+     dan sama untuk kedua bunga atas agar ukurannya terlihat sama visual. */
+  .atas-kiri {
+    top: -10px; /* Kurangi pergeseran keluar agar bunga terlihat lebih utuh */
+    left: -20px; /* Kurangi pergeseran keluar */
+    width: 35%; /* Setel lebar yang sama, 35% lebih aman agar tidak tumpang tindih */
+  }
 
-    /* 2. Ditempel PAS di Ujung Sudut Layar (Tanpa ada yang digeser keluar) */
-    .atas-kiri {
-        top: 0;
-        left: 0;
-    }
+  .atas-kanan {
+    top: -10px; /* Setel pergeseran yang sama dengan bunga kiri */
+    right: -20px; /* Setel pergeseran yang sama dengan bunga kiri */
+    width: 35%; /* Setel lebar yang sama */
+  }
 
-    .atas-kanan {
-        top: 0;
-        right: 0;
-    }
-
-    .bawah-kiri {
-        bottom: 0; 
-        left: 0;
-    }
-
-    /* 3. Angsa di sudut kanan bawah */
-    .Angsa {
-        position: absolute;
-        width: 45%; 
-        bottom: 5px; 
-        right: 5px;
-        z-index: 6; /* Di atas bunga bawah agar tidak tertutup */
-    }
+  /* 2. Menampilkan Bunga Bawah Kiri Sepenuhnya */
+  /* Di media query ini, kita timpa pergeseran negatif dengan positif 
+     agar bunga didorong masuk ke dalam layar dan terlihat sepenuhnya. */
+  .bawah-kiri {
+    bottom: 10px; /* Dorong masuk ke dalam layar */
+    left: 10px; /* Dorong masuk ke dalam layar */
+    width: 35%; /* Sesuaikan lebar di HP agar tidak terlalu besar */
+  }
+}
 
     /* --- Sisa kode layout Anda (TIDAK BERUBAH) --- */
     .bungaprofile { width: 100%; right: 0; opacity: 0.15; }
