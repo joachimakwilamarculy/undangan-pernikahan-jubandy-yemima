@@ -592,16 +592,6 @@ body {
     transform: translateY(0);
   }
 }
-/* Media Query Mobile */
-@media (max-width: 600px) {
-  .atas-kiri,
-  .atas-kanan {
-    width: 40%;
-  }
-  .Angsa {
-    width: 100px;
-  }
-}
 
 @keyframes munculDariKiri {
     0% {
