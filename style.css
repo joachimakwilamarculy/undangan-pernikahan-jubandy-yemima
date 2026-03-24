@@ -953,7 +953,7 @@ body {
     }
     .atas-kanan { 
         width: 80%; /* Diperbesar untuk konsistensi */
-        right: -50px; 
+        right: -30px; 
         top: -20px; 
     }
     
@@ -962,7 +962,7 @@ body {
         width: 80%; /* Disamakan ukurannya dengan bunga lain */
         left: -80px; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
-        bottom: 20px; 
+        bottom: 5px; 
         position: absolute;
     }
     
