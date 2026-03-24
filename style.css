@@ -953,8 +953,8 @@ body {
     }
     .atas-kanan { 
         width: 80%; /* Diperbesar untuk konsistensi */
-        right: -30px; 
-        top: -20px; 
+        right: -5px; 
+        top: -15px; 
     }
     
     /* Bunga Bawah Kiri - Masalah Utama: Bawa Kembali ke Layar & Perbesar */
