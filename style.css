@@ -1000,7 +1000,7 @@ body {
 .footer-names {
     /* Gunakan font estetik Anda di sini */
     font-family: 'Great Vibes', cursive; 
-    font-size: 80px;
+    font-size: 280%;
     margin-bottom: 50px;
     color: #4a148c; /* Warna ungu tua untuk nama */
 }
@@ -1016,7 +1016,7 @@ body {
     .atas-kiri { 
         width: 80%; /* Diperbesar untuk konsistensi */
         left: -15%; 
-        top: -1%; 
+        top: -2%; 
         position: absolute;
     }
     .atas-kanan { 
