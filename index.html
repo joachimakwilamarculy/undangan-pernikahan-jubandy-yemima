@@ -456,10 +456,14 @@ document.addEventListener("DOMContentLoaded", function() {
     </script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const namaTamu = urlParams.get('to');
+        let namaTamu = urlParams.get('to');
 
         if (namaTamu) {
-            document.getElementById('nama-tamu').innerText = namaTamu;
+            // Mengubah tanda garis bawah (_) atau garis lurus (|) menjadi perintah Enter (<br>)
+            namaTamu = namaTamu.replace(/_/g, '<br>').replace(/\|/g, '<br>');
+            
+            // Memasukkan nama ke dalam HTML (menggunakan innerHTML agar kode Enter bisa terbaca)
+            document.getElementById('nama-tamu').innerHTML = namaTamu;
         }
     </script>
 </body>
