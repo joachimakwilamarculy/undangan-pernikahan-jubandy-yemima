@@ -39,14 +39,13 @@
                 white-space: normal; 
                 line-height: 1.3;
                 color: white;">Tamu Undangan</h3>
-                <button class="btn-open" onclick="bukaUndangan()">Buka Undangan</button>
+                <button class="btn-open" onclick="bukaUndangan(); document.getElementById('laguUndangan').play();">Buka Undangan</button>
             </div>
         </div>
-        <audio id="laguUndangan" loop>
-            <source src="asset/musik.mpeg" type="audio/mpeg">
-        </audio>
 
-        <a href="#isi-undangan" class="tombol-buka" onclick="document.getElementById('laguUndangan').play();">Buka Undangan</a>
+        <audio id="laguUndangan" loop>
+            <source src="musik.mpeg" type="audio/mpeg">
+        </audio>
 
         <img src="asset/Angsa1.png" class="Angsa">
     </section>
@@ -460,16 +459,16 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll('.scroll-animasi').forEach((el) => observer.observe(el));
     </script>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        let namaTamu = urlParams.get('to');
+    const urlParams = new URLSearchParams(window.location.search);
+    let namaTamu = urlParams.get('to');
 
-        if (namaTamu) {
-            // Mengubah tanda garis bawah (_) atau garis lurus (|) menjadi perintah Enter (<br>)
-            namaTamu = namaTamu.replace(/_/g, '<br>').replace(/\|/g, '<br>');
-            
-            // Memasukkan nama ke dalam HTML (menggunakan innerHTML agar kode Enter bisa terbaca)
-            document.getElementById('nama-tamu').innerHTML = namaTamu;
-        }
-    </script>
+    if (namaTamu) {
+        // Mengubah tanda garis bawah (_) atau garis lurus (|) menjadi perintah Enter (<br>)
+        namaTamu = namaTamu.replace(/_/g, '<br>').replace(/\|/g, '<br>');
+        
+        // Memasukkan nama ke dalam HTML (menggunakan innerHTML agar kode Enter bisa terbaca)
+        document.getElementById('nama-tamu').innerHTML = namaTamu;
+    }
+</script>
 </body>
 </html>
