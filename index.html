@@ -30,7 +30,8 @@
             <p class="date animasi-terbit delay-3">09 . 04 . 2026</p>
 
             <div class="guest-box animasi-terbit delay-4">
-                <p>Kepada Yth. Bapak/Ibu/Saudara/i<br><br></p>
+                <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <h3 id="nama-tamu" style="margin-top: 5px; margin-bottom: 20px; color: white;">Tamu Undangan</h3>
                 <button class="btn-open" onclick="bukaUndangan()">Buka Undangan</button>
             </div>
         </div>
@@ -445,6 +446,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Menjalankan animasi untuk semua elemen dengan class scroll-animasi
         document.querySelectorAll('.scroll-animasi').forEach((el) => observer.observe(el));
+    </script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const namaTamu = urlParams.get('to');
+
+        if (namaTamu) {
+            document.getElementById('nama-tamu').innerText = namaTamu;
+        }
     </script>
 </body>
 </html>
