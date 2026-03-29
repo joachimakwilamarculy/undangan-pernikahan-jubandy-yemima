@@ -381,25 +381,39 @@
         });
 
         // 2. Script Countdown Hitung Mundur
-        const countDownDate = new Date("Apr 09, 2026 08:00:00").getTime();
-        const countdownTimer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
+        // --- MESIN HITUNG MUNDUR (COUNTDOWN) ---
 
+// Atur tanggal dan waktu tujuan: 9 April 2026 jam 08:00
+            const targetDate = new Date("April 9, 2026 08:00:00").getTime();
+
+            const countdownInterval = setInterval(function() {
+            // Dapatkan waktu saat ini
+            const now = new Date().getTime();
+            
+            // Hitung selisih waktu antara tujuan dan sekarang
+            const distance = targetDate - now;
+
+            // Rumus matematika untuk hari, jam, menit, detik
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Masukkan hasil ke ID HTML Anda (tambah '0' di depan jika angkanya cuma 1 digit)
+            document.getElementById("hari").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("jam").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("menit").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("detik").innerHTML = seconds.toString().padStart(2, '0');
+
+            // Jika waktu sudah lewat (Hari H)
             if (distance < 0) {
-                clearInterval(countdownTimer);
+                clearInterval(countdownInterval);
                 document.getElementById("hari").innerHTML = "00";
                 document.getElementById("jam").innerHTML = "00";
                 document.getElementById("menit").innerHTML = "00";
                 document.getElementById("detik").innerHTML = "00";
-                return;
             }
-
-            document.getElementById("hari").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("jam").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("menit").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("detik").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
-        }, 1000);
+            }, 1000); // Update setiap 1 detik
 
         // 3. Script Lightbox
         function openLightbox(imgSrc) {
