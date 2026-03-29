@@ -57,14 +57,14 @@ body {
   left: -80px;
   width: 30%;
   position: absolute;
-  animation: munculDariKiri 1.8s ease-out forwards;
+  animation: munculDariKiri 1.8s ease-out forwards, ayunDaunAtas 4s ease-in-out 1.8s infinite;
 }
 
 .atas-kanan {
   top: -70px;
   right: -177px;
   width: 70%;
-  animation: riseDownAndStay 1.8s ease-out forwards;
+  animation: riseDownAndStay 1.8s ease-out forwards, nafasBungaBawah 5s ease-in-out 1.8s infinite;
   position: absolute;
 }
 
@@ -72,8 +72,24 @@ body {
   bottom: 0px;
   left: -47px;
   width: 50%;
-  animation: riseUpAndStay 1.8s ease-out forwards;
+  animation: riseUpAndStay 1.8s ease-out forwards, nafasBungaBawah 5s ease-in-out 1.8s infinite;
   position: absolute;
+}
+
+/* ========================================= */
+/* === ANIMASI BUNGA BERGOYANG ELEGAN ====== */
+/* ========================================= */
+
+/* Bunga Kiri Atas: Bergoyang pelan ke kanan-kiri */
+@keyframes ayunDaunAtas {
+  0%, 100% { transform: rotate(0deg) translate(0, 0); }
+  50% { transform: rotate(3deg) translate(5px, 2px); }
+}
+
+/* Bunga Kiri Bawah: Mengapung/bernapas naik-turun sedikit */
+@keyframes nafasBungaBawah {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-6px) scale(1.02); } /* Sedikit membesar dan naik */
 }
 
 .Angsa {
@@ -304,15 +320,35 @@ body {
     text-align: center;
 }
 
+/* GAYA BARU UNTUK BINGKAI FOTO PROFIL */
 .photo-frame {
-    width: 150px; /* Sesuaikan ukuran frame bulat */
+    width: 150px; /* Ukuran bingkai bulat (sesuaikan jika perlu) */
     height: 150px;
-    border-radius: 50%; /* Membuat frame menjadi bulat sempurna */
-    border: 5px solid #e1bee7; /* Memberi bingkai warna ungu muda */
-    overflow: hidden; /* Sembunyikan bagian foto yang keluar dari bulatan */
+    border-radius: 50%; /* Membuat bingkai menjadi bulat sempurna */
+    border: 5px solid #e1bee7; /* Bingkai ungu muda */
+    overflow: hidden; /* PENTING! Memotong foto agar pas di bulatan */
     box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Efek bayangan halus */
-    margin-bottom: 20px; /* Jarak aman ke nama mempelai di bawahnya */
+    margin-bottom: 20px;
     background-color: #f3e5f5; /* Warna latar belakang jika foto gagal dimuat */
+    
+    /* Memposisikan foto tepat di tengah bingkai */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+/* GAYA BARU UNTUK FOTO DI DALAM BINGKAI */
+.photo-frame img {
+    width: 300%; /* Agar foto mengisi lebar bingkai */
+    height: 150%; /* Agar foto mengisi tinggi bingkai */
+    
+    /* PENTING! Mengisi area bingkai tanpa mengubah rasio asli (anti-peyang) */
+    object-fit: cover; 
+    
+    /* Memfokuskan pada wajah (atas), sesuaikan jika perlu */
+    /* Opsional: Coba ganti ke 'center center' jika wajah kurang pas */
+    object-position: center top; 
 }
 
 .pengantin {
@@ -1016,7 +1052,7 @@ body {
     .atas-kiri { 
         width: 80%; /* Diperbesar untuk konsistensi */
         left: -15%; 
-        top: -2%; 
+        top: -4%; 
         position: absolute;
     }
     .atas-kanan { 
@@ -1031,15 +1067,15 @@ body {
         width: 80%; /* Disamakan ukurannya dengan bunga lain */
         left: -9%; /* Pertahankan posisi kiri */
         /* Ubah dari -100px ke nilai positif (misalnya 20px) agar naik ke dalam layar */
-        bottom: 0%; 
+        bottom: -1%; 
         position: absolute;
     }
     
     /* Angsa diperbesar sedikit (dari 45% ke 55%) */
     .Angsa { 
         width: 60%; /* Diperbesar sedikit */
-        right: 1%; 
-        bottom: 8%; 
+        right: -10%; 
+        bottom: 5%; 
     }
 
     /* --- Sisa kode media query (TIDAK BERUBAH) --- */
