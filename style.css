@@ -1074,8 +1074,8 @@ body {
     /* Angsa diperbesar sedikit (dari 45% ke 55%) */
     .Angsa { 
         width: 60%; /* Diperbesar sedikit */
-        right: -10%; 
-        bottom: 5%; 
+        right: -7%; 
+        bottom: 3%; 
     }
 
     /* --- Sisa kode media query (TIDAK BERUBAH) --- */
