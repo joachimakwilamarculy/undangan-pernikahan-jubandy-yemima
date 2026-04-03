@@ -1,4 +1,3 @@
-
 /* --- RESET & RESPONSIVE --- */
 * {
   margin: 0;
@@ -19,10 +18,26 @@ body.no-scroll {
   height: 100dvh;
 }
 
+/* FONT UTAMA (CINZEL UNTUK JUDUL) */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Cinzel', serif;
   background-color: #fdf6ff;
   text-align: center;
+}
+
+/* ========================================= */
+/* === SOLUSI 2: FONT UNTUK TEKS NORMAL ==== */
+/* ========================================= */
+/* Semua teks paragraf, form RSVP, dan tombol menggunakan font 'Lora' agar huruf besar/kecil normal */
+p, 
+input, 
+textarea, 
+select, 
+button,
+.subtitle,
+.waktu-ucapan,
+.countdown-label {
+  font-family: 'Lora', serif;
 }
 
 .guest-box p {
@@ -226,7 +241,10 @@ body {
 .delay-1 { animation-delay: 0.2s; } /* Muncul pertama */
 .delay-2 { animation-delay: 0.6s; } /* Muncul kedua */
 .delay-3 { animation-delay: 1.0s; } /* Muncul ketiga */
-.delay-4 { animation-delay: 1.4s; } /* Kotak tamu muncul paling akhir */
+.delay-4 { animation-delay: 1.4s; }
+.delay-5 { animation-delay: 1.8s; } /* Kotak tamu muncul paling akhir */
+.delay-6 { animation-delay: 2.2s; }
+.delay-7 { animation-delay: 2.6s; }
 
 .main-title {
   font-family: "Great Vibes", cursive;
@@ -246,6 +264,7 @@ body {
   color: white;
   font-weight: bold;
   font-size: 1.2rem;
+  font-family: 'Lora', serif; /* Memastikan tanggal tetap terbaca jelas */
 }
 
 /* --- NAVIGASI MELAYANG (KANAN ATAS) --- */
@@ -276,6 +295,7 @@ body {
     min-width: 80px;           /* Lebar minimal agar semua tombol seragam ukurannya */
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15); /* Bayangan dibuat lebih halus */
     transition: all 0.3s ease; 
+    font-family: 'Lora', serif; /* Font normal pada tombol navigasi */
 }
 
 /* Efek saat tombol disentuh */
@@ -299,10 +319,6 @@ body {
 }
 
 #profile {
-  background-color: #fdfcf0;
-}
-
-#info {
   background-color: #e0d1ed;
 }
 
@@ -320,7 +336,7 @@ body {
     text-align: center;
 }
 
-/* GAYA BARU UNTUK BINGKAI FOTO PROFIL */
+/* GAYA BARU UNTUK BINGKAI FOTO PROFIL DENGAN ANIMASI MENGAPUNG */
 .photo-frame {
     width: 150px; /* Ukuran bingkai bulat (sesuaikan jika perlu) */
     height: 150px;
@@ -336,6 +352,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 5;
+    
 }
 
 /* GAYA BARU UNTUK FOTO DI DALAM BINGKAI */
@@ -387,7 +404,7 @@ body {
     display: block;
 }
 
-/* Tombol Buka Maps */
+/* Tombol Buka Maps (Diberi Animasi Berdenyut/Pulse) */
 .btn-buka-maps {
     display: inline-block;
     background-color: #9c27b0;
@@ -399,10 +416,15 @@ body {
     text-decoration: none;
     transition: background 0.3s ease;
     width: 80%; /* Tombol agak lebar */
+    font-family: 'Lora', serif;
+    
+    /* Tambahan Animasi */
+    animation: pulseButton 2s infinite;
 }
 
 .btn-buka-maps:hover {
     background-color: #7b1fa2;
+    animation: none; /* Hentikan animasi saat disentuh */
 }
 
 /* Pengaturan awal kartu sebelum muncul */
@@ -461,6 +483,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    font-family: 'Lora', serif;
 }
 
 .btn-ig:hover {
@@ -537,6 +560,11 @@ body {
   border: none;
   font-weight: bold;
   cursor: pointer;
+  animation: pulseButton 2s infinite; /* Tambahan animasi buka undangan */
+}
+
+.btn-open:hover {
+    animation: none;
 }
 
 /* --- WADAH KARTU (FLEXBOX) --- */
@@ -603,7 +631,7 @@ body {
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-family: inherit;
+    font-family: 'Lora', serif; /* Memastikan kolom input/form tidak kapital semua */
     font-size: 0.95rem;
     box-sizing: border-box; /* Agar padding tidak melebihi kotak */
 }
@@ -633,47 +661,60 @@ body {
     background-color: #7b1fa2;
 }
 
-/* Area Daftar Komentar / Ucapan */
-.messages-list {
-    margin-top: 30px;
-    max-height: 300px; /* Batasi tinggi kotak komentar */
-    overflow-y: auto;  /* Tambahkan scroll di dalam kotak jika komentar banyak */
-    padding-right: 10px;
+/* --- Tampilan Kotak Daftar Ucapan --- */
+.guestbook-container {
+  max-height: 350px; /* Batas tinggi maksimal kotak sebelum bisa di-scroll */
+  overflow-y: auto; /* Memunculkan scrollbar jika pesan sudah banyak */
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 8px;
+  margin-top: 15px;
 }
 
-.message-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border-left: 4px solid #9c27b0;
+/* Desain per kartu pesan */
+.ucapan-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-left: 4px solid #9C27B0; /* Warna ungu pinggir kartu */
+  text-align: left;
 }
 
-.message-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
+.nama-tamu {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Lora', serif; /* Huruf normal untuk daftar tamu */
 }
 
+/* Label Hadir / Tidak Hadir */
 .badge-hadir {
-    background-color: #e1bee7;
-    color: #6a1b9a;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
+  font-size: 0.7rem;
+  background-color: #e0d1ed; 
+  color: #4A3B47;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: normal;
 }
 
-.message-body {
-    font-size: 0.9rem;
-    color: #444;
-    line-height: 1.4;
-    margin: 0;
+.isi-ucapan {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
 }
 
-/* --- ANIMASI --- */
+.waktu-ucapan {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* --- ANIMASI BAWAAN --- */
 @keyframes riseUpAndStay {
   0% {
     opacity: 0;
@@ -695,6 +736,47 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes munculDariKiri {
+    0% {
+        opacity: 0;             /* Sepenuhnya transparan (hilang) */
+        transform: translateX(-100%); 
+    }
+    100% {
+        opacity: 1;             /* Sepenuhnya terlihat tajam */
+        transform: translateX(0); 
+    }
+  }
+
+@keyframes mengapungPelan {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ========================================= */
+/* === KUMPULAN ANIMASI BARU =============== */
+/* ========================================= */
+
+/* Animasi Berdenyut/Pulse untuk Tombol Aksi */
+@keyframes pulseButton {
+    0% { box-shadow: 0 0 0 0 rgba(156, 39, 176, 0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(156, 39, 176, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(156, 39, 176, 0); }
+}
+
+/* Animasi Mengapung Halus untuk Foto Profil */
+@keyframes floatSmooth {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Animasi Titik Timeline Pulse */
+@keyframes pulseDot {
+    0% { transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(156, 39, 176, 0.4); }
+    50% { transform: translateX(-50%) scale(1.1); box-shadow: 0 0 0 8px rgba(156, 39, 176, 0); }
+    100% { transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(156, 39, 176, 0); }
+}
+
 /* Media Query Mobile */
 @media (max-width: 600px) {
   .atas-kiri,
@@ -706,34 +788,6 @@ body {
   }
 }
 
-@keyframes munculDariKiri {
-    0% {
-        /* POSISI AWAL (START) */
-        opacity: 0;             /* Sepenuhnya transparan (hilang) */
-        
-        /* Geser kotak bunga 100% ke kiri (keluar dari layar) */
-        transform: translateX(-100%); 
-    }
-    
-    100% {
-        /* POSISI AKHIR (FINISH) */
-        opacity: 1;             /* Sepenuhnya terlihat tajam */
-        
-        /* Kembali ke posisi aslinya (top:0, left:0) */
-        transform: translateX(0); 
-    }
-  }
-
-  @keyframes mengapungPelan {
-    0%, 100% {
-        /* Posisi diam di air */
-        transform: translateY(0);
-    }
-    50% {
-        /* Terangkat ombak pelan (naik 5px) */
-        transform: translateY(-5px); 
-    }
-}
 
 @media (max-width: 480px) {
     .card-number { font-size: 1.2rem; }
@@ -748,7 +802,6 @@ body {
 /* Container Utama Love Story */
 .love-story-section {
     padding: 60px 20px;
-    background-color: #fdfcff;
     text-align: center;
 }
 
@@ -793,7 +846,7 @@ body {
     justify-content: flex-start; /* Ganjil kiri */
 }
 
-/* Titik Ungu di Tengah */
+/* Titik Ungu di Tengah dengan Animasi Berdenyut */
 .timeline-dot {
     position: absolute;
     left: 50%;
@@ -805,6 +858,9 @@ body {
     transform: translateX(-50%);
     z-index: 2;
     border: 3px solid #fdfcff;
+    
+    /* Tambahan Animasi */
+    animation: pulseDot 2.5s infinite;
 }
 
 /* Kotak Konten (Card) */
@@ -862,7 +918,7 @@ body {
 /* Responsif Mobile */
 @media screen and (max-width: 768px) {
     .timeline-line { left: 20px; transform: none; }
-    .timeline-dot { left: 20px; transform: none; }
+    .timeline-dot { left: 20px; transform: translateX(-50%); animation: pulseDot 2.5s infinite; } /* Tetap berdenyut di mobile */
     .timeline-item { justify-content: flex-end !important; padding-left: 40px; }
     .timeline-content { width: 100%; }
     .story-grid { flex-direction: column !important; }
@@ -875,7 +931,7 @@ body {
 
 .prewedding-section {
     padding: 60px 20px;
-    background-color: #ffffff;
+    
     text-align: center;
 }
 
@@ -1146,4 +1202,136 @@ body {
         min-width: 60px;
         transform: none !important;
     }
+}
+
+/* --- Save the Date Section --- */
+.save-the-date-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh; /* Adjust height as needed */
+  /* GANTI URL DI BAWAH DENGAN FOTO PREWEDDING ANDA */
+  background-image: url('asset/prewed4.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; /* Optional: Creates a parallax effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* Dark overlay gradient to make text readable */
+/* --- Pengaturan Overlay Warna #e0d1ed --- */
+.save-the-date-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradient transparan menggunakan warna #e0d1ed (RGB: 224, 209, 237) 
+      Angka 0.3 (atas) dan 0.9 (bawah) mengatur tingkat transparansinya */
+  background: linear-gradient(to bottom, rgba(224, 209, 237, 0.3) 0%, rgba(224, 209, 237, 0.9) 100%); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.save-the-date-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+/* Typography for "Save the Date" */
+.save-the-date-content .script-font {
+  font-family: 'Great Vibes', cursive; /* Pastikan Anda sudah import font ini dari Google Fonts */
+  font-size: 4rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+.save-the-date-content .small-text {
+  font-family: 'Lora', serif; /* Atau font serif lainnya */
+  font-size: 2.0rem;
+  font-style: italic;
+  display: block;
+  margin: -10px 0;
+}
+
+/* Countdown Timer Styling */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.countdown-number {
+  font-size: 2rem;
+  font-family: 'Lora', serif;
+  font-weight: bold;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  font-family: 'Lora', serif;
+  text-transform: capitalize;
+  margin-top: 5px;
+}
+
+.countdown-separator {
+  font-size: 2rem;
+  font-family: 'Lora', serif;
+  margin-top: -20px; /* Adjust vertical alignment of the colon */
+}
+
+/* Button Styling (Diberi Animasi Pulse) */
+.btn-save-date {
+  display: inline-block;
+  background-color: white;
+  color: #333; /* Dark text color */
+  padding: 12px 24px;
+  text-decoration: none;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  border-radius: 4px; /* Slight rounded corners */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  /* Tambahan Animasi */
+  animation: pulseButton 2s infinite;
+}
+
+.btn-save-date i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.btn-save-date:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  animation: none; /* Hentikan animasi saat kursor diarahkan ke tombol */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .save-the-date-content .script-font {
+    font-size: 3rem;
+  }
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+  .countdown-container {
+    gap: 0.5rem;
+  }
 }
