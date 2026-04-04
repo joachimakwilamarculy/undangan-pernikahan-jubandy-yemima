@@ -385,53 +385,80 @@
         document.addEventListener("DOMContentLoaded", function() {
 
             // --- 1. SCRIPT FORM UCAPAN & RSVP ---
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyC8vAO5itZDLAB3Bd_3wXJl8l1BDnzmHaHHuU5z9sBBfx1svdNv24FM2zvJQfL1CB4zQ/exec';
+            // GANTI URL INI DENGAN URL DEPLOYMENT APPS SCRIPT ANDA YANG BARU
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwgjVjPj-BgYop89K8JffDKynDVPvSruVgK7d1GCJiZpofJp3RWEcn9-XtJM2B0cGKfSA/exec';
+            
             const form = document.getElementById('wishesForm');
             const btnSubmit = document.getElementById('btnSubmitUcapan');
             const successMessage = document.getElementById('successMessage');
+            const daftarUcapan = document.getElementById('daftar-ucapan');
 
+            // --- FUNGSI MENGAMBIL DATA UCAPAN DARI SHEETS ---
+            function loadUcapan() {
+                daftarUcapan.innerHTML = '<p style="text-align:center; color:#fff;">Memuat ucapan...</p>';
+                
+                fetch(scriptURL)
+                    .then(response => response.json())
+                    .then(data => {
+                        daftarUcapan.innerHTML = ''; // Bersihkan tulisan loading
+                        
+                        if (data.length === 0) {
+                            daftarUcapan.innerHTML = '<p style="text-align:center; color:#fff;">Belum ada ucapan. Jadilah yang pertama!</p>';
+                            return;
+                        }
+                        
+                        data.forEach(item => {
+                            let badgeColor = "#e0d1ed"; 
+                            if(item.kehadiran === "Tidak Hadir") badgeColor = "#ffcdd2"; 
+                            if(item.kehadiran === "Masih Ragu") badgeColor = "#fff9c4"; 
+
+                            // Format tanggal menjadi lebih rapi
+                            let tgl = new Date(item.tanggal);
+                            let tglStr = tgl.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+
+                            let ucapanHTML = `
+                                <div class="ucapan-card scroll-animasi muncul" style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #9C27B0; text-align: left;">
+                                    <h4 style="margin: 0 0 8px 0; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; color: #333;">
+                                        ${item.nama} 
+                                        <span style="background-color: ${badgeColor}; padding: 4px 8px; border-radius: 12px; font-size: 0.7rem; color: #4A3B47;">${item.kehadiran}</span>
+                                    </h4>
+                                    <p style="margin: 0 0 8px 0; font-size: 0.9rem; color: #555; line-height: 1.4;">${item.ucapan}</p>
+                                    <span style="font-size: 0.75rem; color: #aaa;">${tglStr}</span>
+                                </div>
+                            `;
+                            daftarUcapan.innerHTML += ucapanHTML;
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Gagal memuat ucapan:', error);
+                        daftarUcapan.innerHTML = '<p style="text-align:center; color:red;">Gagal memuat ucapan. Silakan refresh.</p>';
+                    });
+            }
+
+            // Panggil fungsi ini agar ucapan langsung muncul saat web dibuka
+            loadUcapan();
+
+            // --- FUNGSI MENGIRIM UCAPAN BARU ---
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault(); 
                     btnSubmit.innerHTML = 'Mengirim...';
                     btnSubmit.disabled = true;
 
-                    // FormData ini akan otomatis mengambil data berdasarkan atribut "name" di HTML
                     const formData = new FormData(form);
-                    
-                    const namaValue = formData.get('nama');
-                    const statusValue = formData.get('kehadiran');
-                    const pesanValue = formData.get('ucapan');
 
                     fetch(scriptURL, { method: 'POST', body: formData })
                     .then(response => {
-                        // Memunculkan ucapan dengan CSS Inline agar dijamin rapi (tidak tumpuk)
-                        let badgeColor = "#e0d1ed"; 
-                        if(statusValue === "Tidak Hadir") badgeColor = "#ffcdd2"; 
-                        if(statusValue === "Masih Ragu") badgeColor = "#fff9c4"; 
-
-                        let ucapanBaru = `
-                            <div class="ucapan-card" style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #9C27B0; animation: fadeIn 0.5s;">
-                                <h4 style="margin: 0 0 8px 0; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; color: #333;">
-                                    ${namaValue} 
-                                    <span style="background-color: ${badgeColor}; padding: 4px 8px; border-radius: 12px; font-size: 0.7rem; color: #4A3B47;">${statusValue}</span>
-                                </h4>
-                                <p style="margin: 0 0 8px 0; font-size: 0.9rem; color: #555; line-height: 1.4;">${pesanValue}</p>
-                                <span style="font-size: 0.75rem; color: #aaa;">Baru saja</span>
-                            </div>
-                        `;
-                        
-                        let container = document.getElementById("daftar-ucapan");
-                        if(container) {
-                            container.insertAdjacentHTML('afterbegin', ucapanBaru);
-                        }
-
-                        // Reset form & tampilkan notifikasi
+                        // Reset form
                         form.reset(); 
                         btnSubmit.innerHTML = 'Kirim Pesan';
                         btnSubmit.disabled = false;
+                        
+                        // Ubah pesan sukses untuk memberitahu tamu soal sistem moderasi
+                        successMessage.innerHTML = 'Terima kasih! Pesan Anda telah terkirim dan akan ditampilkan setelah disetujui oleh mempelai. ❤️';
                         successMessage.style.display = 'block';
-                        setTimeout(() => { successMessage.style.display = 'none'; }, 5000);
+                        
+                        setTimeout(() => { successMessage.style.display = 'none'; }, 6000);
                     })
                     .catch(error => {
                         console.error('Gagal mengirim:', error.message);
